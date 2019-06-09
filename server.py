@@ -23,8 +23,8 @@ class myHandler(BaseHTTPRequestHandler):
 			if self.path.endswith(".mp3"):
 				mimetype='audio/mpeg'
 				sendReply = True
-
-            if sendReply == True:
+			
+			if sendReply == True:
 				#Open the static file requested and send it
 				f = open(curdir + sep + self.path) 
 				self.send_response(200)
@@ -42,11 +42,11 @@ try:
 	#Create a web server and define the handler to manage the
 	#incoming request
 	server = HTTPServer(('', PORT_NUMBER), myHandler)
-	print 'Started httpserver on port ' , PORT_NUMBER
+	print ('Started httpserver on port ' , PORT_NUMBER)
 	
 	#Wait forever for incoming htto requests
 	server.serve_forever()
 
 except KeyboardInterrupt:
-	print '^C received, shutting down the web server'
+	print ('^C received, shutting down the web server')
 	server.socket.close()
