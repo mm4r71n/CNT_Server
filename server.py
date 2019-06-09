@@ -20,17 +20,11 @@ class myHandler(BaseHTTPRequestHandler):
 			if self.path.endswith(".mp4"):
 				mimetype='video/mp4'
 				sendReply = True
-            if self.path.endswith(".ogg"):
-				mimetype='video/ogg'
-				sendReply = True
 			if self.path.endswith(".mp3"):
 				mimetype='audio/mpeg'
 				sendReply = True
-            if self.path.endswith(".ogg"):
-				mimetype='video/ogg'
-				sendReply = True
 
-			if sendReply == True:
+            if sendReply == True:
 				#Open the static file requested and send it
 				f = open(curdir + sep + self.path) 
 				self.send_response(200)
